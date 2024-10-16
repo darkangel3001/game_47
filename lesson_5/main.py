@@ -1,13 +1,14 @@
-from decouple import Config, Csv
+from decouple import config
 from logic import play_game
 
 
 def load_settings():
-    config = Config()
-    min_number = config('min_number', cast=int)
-    max_number = config('max_number', cast=int)
-    attempts = config('attempts', cast=int)
-    starting_capital = config('starting_capital', cast=int)
+
+    min_number = config('MIN_NUMBER', cast=int)
+    max_number = config('MAX_NUMBER', cast=int)
+    attempts = config('ATTEMPTS', cast=int)
+    starting_capital = config('STARTING_CAPITAL', cast=int)
+
 
     return min_number, max_number, attempts, starting_capital
 
@@ -17,5 +18,5 @@ def main():
     play_game(min_number, max_number, attempts, starting_capital)
 
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     main()
