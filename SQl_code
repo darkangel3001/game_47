@@ -1,0 +1,20 @@
+CREATE TABLE categories (
+    code VARCHAR(2) PRIMARY KEY,
+    title VARCHAR(150)
+);
+
+CREATE TABLE products (
+    id INTEGER PRIMARY KEY,
+    title VARCHAR(250),
+    category_code VARCHAR(2),
+    unit_price FLOAT,
+    stock_quantity INTEGER,
+    store_id INTEGER,
+    FOREIGN KEY (category_code) REFERENCES categories(code),
+    FOREIGN KEY (store_id) REFERENCES store(store_id)
+);
+
+CREATE TABLE store (
+    store_id INTEGER PRIMARY KEY,
+    title VARCHAR(100)
+);
